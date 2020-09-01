@@ -1,0 +1,19 @@
+.navbar > button {
+    display: inline-block;
+    border: none;
+    color: #bbbbbb;
+    border-bottom: 2px solid #bbbbbb;
+    padding: 1rem 2rem;
+    margin: 20px;
+    text-decoration: none;
+    background:none;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
