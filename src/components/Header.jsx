@@ -1,5 +1,5 @@
 import React, {useEffect, useState, Component} from 'react';
-import './header.css';
+import '../css/header.css';
 
 const Pages = {
   TIRE: 1,
@@ -20,8 +20,4 @@ const Navbar = (props) => {
   );
 }
 
-export default class Header extends Component {
-    render() {
-        return <Navbar />
-    }
-}
+export default Navbar;

@@ -1,0 +1,22 @@
+.form-slider, .form-text {
+    display: flex;
+    justify-content: center;
+}
+
+.form-slider {
+    display: block;
+}
+
+.form-slider * {
+    display: flex;
+    justify-content: center;
+}
+
+.form-element > label {
+    width: 100px;
+}
+
+body {
+    background: #F0F0F0;
+}
+
