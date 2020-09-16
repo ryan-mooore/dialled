@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import '../css/App.css';
 import '../css/App-Navbar.css'
-import Form from './Form'
+import FormHandler from './form/FormHandler'
 import NotFound from './NotFound'
 
 import {
@@ -34,7 +34,7 @@ const App = () => {
         <Switch>
           <Route path="/about"    component={About} />
           <Route path="/protune"  component={Protune} />
-          <Route exact path="/"   component={Form} />
+          <Route exact path="/"   component={FormHandler} />
           <Route path             component={NotFound} />
         </Switch>
       </Router>
