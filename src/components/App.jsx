@@ -37,7 +37,7 @@ const App = () => {
   const handleNext = (event) => {
     event.preventDefault()
     for (const [_, value] of Object.entries(formEntries)) {
-      if (value == undefined) {
+      if (value === undefined) {
         return false;
       }
     }
@@ -71,10 +71,10 @@ const App = () => {
           />)}/>
           
           <Route exact path="/" render={(props) => (<Preliminary {...props}
-            values={formEntries}
-            TrailType={TrailType}
-            onChange={handleFormChange}
-            handleNext={handleNext}
+            values             ={formEntries}
+            TrailType          ={TrailType}
+            onChange           ={handleFormChange}
+            handleNext         ={handleNext}
           />)} />
 
           <Route path="/about" component={About} />

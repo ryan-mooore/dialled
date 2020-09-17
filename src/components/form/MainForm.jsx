@@ -16,6 +16,13 @@ const MainForm = (props) => {
         })
     }
 
+    // redirect back to / if the user has not submitted form
+    for (const [_, value] of Object.entries(props.preliminaryValues)) {
+      if (value === undefined) {
+        props.history.push("/");
+      }
+    }
+
     const algorithm = (preliminaryFormEntries, formEntries) => {
         let weight = parseInt(preliminaryFormEntries.bikeWeight) + parseInt(preliminaryFormEntries.riderWeight);
         let width = parseFloat(formEntries.tyreWidth)
