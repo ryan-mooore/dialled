@@ -1,10 +1,19 @@
-.calculation h1 {
+.calculation .number {
+    font-family: Montserrat;
+    font-weight: 600;
     font-size: 200px;
-    display: inline;
+    color: #454545;
 }
 
-.calculation span {
+.calculation .info {
+    text-align: center;
+    position: relative;
+    top: -30px;
+    color: #454545;
+}
+
+.calculation {
     display: flex;
     align-content: center;
-    width: 100%;
+    justify-content: space-evenly;
 }

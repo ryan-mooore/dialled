@@ -1,38 +1,40 @@
 import React, { useEffect, useState, Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-const Preliminary = (props) => {
-    return (
+const Preliminary = props => (
         <form>
-            <div class="trail-type">
+            <div className="trail-type">
                 {
                 Object.entries(props.TrailType).map(([key, value]) => (
-                <div>
-                    <input type="radio" key={key} name="trail-type" onClick={() => props.onChange("trailType", key)} />
+                <div className="form-radios">
+                    <input type="radio" key={key} name="trail-type" onClick={(event) => props.onChange(event, "trailType", key)} />
                     <img src=""></img>
                     <label for={key}>{value}</label>
                 </div>))
                 }
             </div>
 
-            <div class="weight-container">
-                <div class="form-text">
+            <div className="weight-container">
+                <div className="form-text">
                     <label for="rider-weight">Rider weight: </label>
-            <input type="text" value={props.values.riderWeight} onChange={(event) => props.onChange("riderWeight", event.target.value)} />
+            <input type="text" value={props.values.riderWeight} onChange={(event) => props.onChange(event, "riderWeight", event.target.value)} />
                 </div>
-                <div class="form-text">
+                <div className="form-text">
                     <label Formfor="bike-weight">Bike weight: </label>
-                    <input type="text" value={props.values.bikeWeight} onChange={(event) => props.onChange("bikeWeight", event.target.value)} />
+                    <input type="text" value={props.values.bikeWeight} onChange={(event) => props.onChange(event, "bikeWeight", event.target.value)} />
                 </div>
             </div>
 
-            <div class="form-slider">
-                <label for="riding-style">Riding style</label>
-                <input type="range" min="1" max="100" value={props.values.ridingStyle} class="slider" id="slider" onChange={(event) => props.onChange("ridingStyle", event.target.value)}/>
+            <div className="form-slider">
+                <label for="riding-style">Riding style: </label>
+                <input type="range" min="1" max="100" value={props.values.ridingStyle} className="slider" id="slider" onChange={(event) => props.onChange(event, "ridingStyle", event.target.value)}/>
             </div>
             
-            <button onClick={(event) => props.handleNext(event)}>next</button>
+            <div className="form-button">
+                <button onClick={(event) => props.handleNext(event) ? props.history.push("/results"): null }>next</button>
+            </div>
+            
         </form>
     )
-}
 
 export default Preliminary;

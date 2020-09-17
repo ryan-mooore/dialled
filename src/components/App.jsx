@@ -1,17 +1,49 @@
-import React, { useEffect, useState, Component } from 'react';
-import '../css/App.css';
-import '../css/App-Navbar.css'
-import FormHandler from './form/FormHandler'
-import NotFound from './NotFound'
-
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Link, Route, Switch
 } from "react-router-dom";
+import '../css/App-Navbar.css';
+import '../css/App.css';
+import MainForm from './form/MainForm';
+import Preliminary from './form/PreliminaryForm';
+import NotFound from './NotFound';
+
 
 const App = () => {
+
+  const TrailType = {
+    TECH: "tech",
+    FREERIDE: "freeride",
+    FLOW: "flow",
+    UNDULATING: "undulating",
+    URBAN: "urban"
+  }
+  
+  const [formEntries, setFormEntries] = useState({
+    trailType: undefined,
+    riderWeight: undefined,
+    bikeWeight: undefined,
+    ridingStyle: 50,
+  });
+
+  const handleFormChange = (event, key, value) => {
+    setFormEntries({
+      ...formEntries,
+      [key]: value
+    })
+  }
+
+  const handleNext = (event) => {
+    event.preventDefault()
+    for (const [_, value] of Object.entries(formEntries)) {
+      if (value == undefined) {
+        return false;
+      }
+    }
+    return true;
+    
+  }
 
   return (
     <div>
@@ -32,10 +64,23 @@ const App = () => {
         </nav>
 
         <Switch>
-          <Route path="/about"    component={About} />
-          <Route path="/protune"  component={Protune} />
-          <Route exact path="/"   component={FormHandler} />
-          <Route path             component={NotFound} />
+          
+          <Route path="/results" render={(props) => (<MainForm {...props}
+            preliminaryValues  ={formEntries}
+            TrailType          ={TrailType}
+          />)}/>
+          
+          <Route exact path="/" render={(props) => (<Preliminary {...props}
+            values={formEntries}
+            TrailType={TrailType}
+            onChange={handleFormChange}
+            handleNext={handleNext}
+          />)} />
+
+          <Route path="/about" component={About} />
+          <Route path="/protune" component={Protune} />
+          <Route path component={NotFound} />
+
         </Switch>
       </Router>
     </div>

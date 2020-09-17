@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import Preliminary from './PreliminaryForm';
 import MainForm from './MainForm'
+import { useHistory, Route } from "react-router-dom";
 
 const FormHandler = () => {
 
@@ -19,7 +20,7 @@ const FormHandler = () => {
         ridingStyle: 50,
     });
     
-    const [completedPreliminary, setPreliminary] = useState(false);
+    const [completedPreliminary, setPreliminary] = useState(null);
 
     const handleFormChange = (key, value) => {
         setFormEntries({
@@ -27,18 +28,29 @@ const FormHandler = () => {
             [key]: value
         })
     }
+    
+    const history = useHistory();
 
     const handleNext = (event) => {
+
+
         event.preventDefault()
         for (const [key, value] of Object.entries(formEntries)) {
-            if (value == null) return;
+            if (value == null) {
+                setPreliminary(false);
+                return;
+            }
         }
-        setPreliminary(true);
+        
+        return (
+            <Route
+            path='/dashboard'
+            render={(props) => (
+                <MainForm {...props} preliminaryValues={formEntries} />
+            )} />
+        );
     }
-
-    return (
-        (completedPreliminary ? <MainForm preliminaryValues={formEntries}/> : <Preliminary TrailType={TrailType} onChange={handleFormChange} handleNext={handleNext} values={formEntries} />)
-    )
+    return ("n");
 };
 
 export default FormHandler;
