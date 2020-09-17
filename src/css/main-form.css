@@ -4,5 +4,7 @@
 }
 
 .calculation span {
-    display: inline;
+    display: flex;
+    align-content: center;
+    width: 100%;
 }

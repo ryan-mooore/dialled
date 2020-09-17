@@ -16,10 +16,10 @@ const FormHandler = () => {
         trailType: null,
         riderWeight: null,
         bikeWeight: null,
-        ridingStyle: null,
+        ridingStyle: 50,
     });
     
-    const [completedPreliminary, setPreliminary] = useState(true);
+    const [completedPreliminary, setPreliminary] = useState(false);
 
     const handleFormChange = (key, value) => {
         setFormEntries({
@@ -37,7 +37,7 @@ const FormHandler = () => {
     }
 
     return (
-        (completedPreliminary ? <MainForm /> : <Preliminary TrailType={TrailType} onChange={handleFormChange} handleNext={handleNext} values={formEntries} />)
+        (completedPreliminary ? <MainForm preliminaryValues={formEntries}/> : <Preliminary TrailType={TrailType} onChange={handleFormChange} handleNext={handleNext} values={formEntries} />)
     )
 };
 
