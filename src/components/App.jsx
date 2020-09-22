@@ -36,8 +36,8 @@ const App = () => {
 
   const handleNext = (event) => {
     event.preventDefault()
-    for (const [_, value] of Object.entries(formEntries)) {
-      if (value === undefined) {
+    for (const property in formEntries) {
+      if (formEntries[property] === undefined) {
         return false;
       }
     }

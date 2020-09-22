@@ -17,8 +17,8 @@ const MainForm = (props) => {
     }
 
     // redirect back to / if the user has not submitted form
-    for (const [_, value] of Object.entries(props.preliminaryValues)) {
-      if (value === undefined) {
+    for (const property in props.preliminaryValues) {
+      if (props.preliminaryValues[property] === undefined) {
         props.history.push("/");
       }
     }

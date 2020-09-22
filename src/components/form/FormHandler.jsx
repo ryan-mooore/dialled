@@ -14,7 +14,7 @@ const FormHandler = () => {
     }
 
     const [formEntries, setFormEntries] = useState({
-        trailType: null,
+        trailType: TrailType.FLOW,
         riderWeight: null,
         bikeWeight: null,
         ridingStyle: 50,

@@ -1,5 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
 
 const Preliminary = props => (
         <form>
@@ -7,8 +6,8 @@ const Preliminary = props => (
                 {
                 Object.entries(props.TrailType).map(([key, value]) => (
                 <div className="form-radios">
-                    <input type="radio" key={key} name="trail-type" onClick={(event) => props.onChange(event, "trailType", key)} />
-                    <img src=""></img>
+                    <input type="radio" key={key} name="trail-type" onClick={(event) => props.onChange(event, "trailType", key)} checked={console.log(props.values.trailType)}/>
+                    <img src="" alt=""></img>
                     <label for={key}>{value}</label>
                 </div>))
                 }
