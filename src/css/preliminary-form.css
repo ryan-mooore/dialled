@@ -1,0 +1,162 @@
+form {
+    margin-bottom: 100px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.form-section h1 {
+    align-self: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: lowercase;
+    color: #454545;
+}
+
+.weight label,
+.form-slider label {
+    width: 120px;
+}
+
+.weight-input,
+.trail-type,
+.riding-style-slider::-webkit-slider-thumb,
+.form-button {
+    border-radius: 15px;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
+    border: 6px solid #454545;
+}
+
+label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: lowercase;
+}
+
+
+/* trail type */
+
+.trail-type {
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    z-index: 100;
+}
+
+.trail-type-button {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: #F0F0F0;
+    align-self: center;
+    border-radius: 9px;
+}
+
+.trail-type-button[check],
+.riding-style-slider::-webkit-slider-thumb {
+    background-color: #E3E3E3;
+}
+
+.trail-type-button:hover {
+    background-color: #ffffff;
+}
+
+.trail-type-icon {
+    width: 100px;
+    height: 65px;
+}
+
+
+/* riding style */
+
+.riding-style {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.riding-style-slider {
+    align-self: center;
+    -webkit-appearance: none;
+    align-self: center;
+    width: 350px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 6px;
+    background: #454545;
+}
+
+.riding-style-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+
+
+/* weight */
+
+.weight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.kg-label {
+    padding-left: 5px;
+    width: 10px !important;
+}
+
+.weight-input {
+    width: 50px;
+    height: 30px;
+    outline: 0;
+    background: #E3E3E3;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 24px;
+    color: #454545;
+}
+
+.form-button {
+    position: fixed;
+    background-color: #F0F0F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 40px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.form-button:hover {
+    background-color: #E3E3E3;
+}
+
+.form-button:active {
+    background-color: #dddddd;
+}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/main-form.css';
 
-
 const MainForm = (props) => {
 
     const [formEntries, setFormEntries] = useState({
@@ -18,9 +17,9 @@ const MainForm = (props) => {
 
     // redirect back to / if the user has not submitted form
     for (const property in props.preliminaryValues) {
-      if (props.preliminaryValues[property] === undefined) {
-        props.history.push("/");
-      }
+        if (props.preliminaryValues[property] === undefined) {
+            props.history.push("/");
+        }
     }
 
     const algorithm = (preliminaryFormEntries, formEntries) => {
@@ -35,7 +34,7 @@ const MainForm = (props) => {
 
         let finalRearPSI = formEntries.isTubeless ? weightBasedPSI : tubedPSI
 
-        let finalFrontPSI = finalRearPSI - (1.04 ** finalRearPSI);
+        let finalFrontPSI = finalRearPSI - (finalRearPSI < 50 ? (1.04 ** finalRearPSI) : 7);
 
         return [Math.round(finalFrontPSI), Math.round(finalRearPSI)];
     }
@@ -43,14 +42,18 @@ const MainForm = (props) => {
     return (
         <div>
             <form>
-                <div className="form-checkbox">
+                <div className="form-entry">
                     <label htmlFor="isTubeless">Is Tubeless?</label>
-                    <input type="checkbox" onClick={(event) => handleFormChange("isTubeless", !formEntries.isTubeless)} />
+                    <div className="form-entry-content">
+                        <input type="checkbox" onClick={(event) => handleFormChange("isTubeless", !formEntries.isTubeless)} />
+                    </div>
                 </div>
 
-                <div className="form-slider">
-                    <label htmlFor="riding-style">Tyre width: </label>
-                    <input type="range" min="2.0" max="4.0" step="0.1" value={formEntries.tyreWidth} className="slider" id="slider" onChange={(event) => handleFormChange("tyreWidth", event.target.value)} />
+                <div className="form-entry">
+                    <label htmlFor="tyre-width">Tyre width: </label>
+                    <div className="form-entry-content">
+                        <input className="tyre-width-slider" type="range" min="2.0" max="4.0" step="0.1" value={formEntries.tyreWidth} onChange={(event) => handleFormChange("tyreWidth", event.target.value)} />
+                    </div>
                     <span>{formEntries.tyreWidth}</span>
                 </div>
 

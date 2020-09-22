@@ -21,7 +21,7 @@ const App = () => {
   }
   
   const [formEntries, setFormEntries] = useState({
-    trailType: undefined,
+    trailType: TrailType.FLOW,
     riderWeight: undefined,
     bikeWeight: undefined,
     ridingStyle: 50,
@@ -37,7 +37,7 @@ const App = () => {
   const handleNext = (event) => {
     event.preventDefault()
     for (const property in formEntries) {
-      if (formEntries[property] === undefined) {
+      if (formEntries[property] === undefined || formEntries[property] === "") {
         return false;
       }
     }
@@ -79,7 +79,7 @@ const App = () => {
 
           <Route path="/about" component={About} />
           <Route path="/protune" component={Protune} />
-          <Route path component={NotFound} />
+          <Route component={NotFound} />
 
         </Switch>
       </Router>

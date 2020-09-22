@@ -1,58 +1,6 @@
-.form-radios, .form-slider, .form-text, .form-checkbox {
-    font-family: Montserrat;
-    font-weight: 600;
-    display: flex;
-    margin: 20px;
-    justify-content: center;
-    color: #454545;
-}
-
-button {
-    padding: 10px 30px 10px 30px;
-    display: block;
-}
-
-.form-radios input, .form-checkbox input {
-    transform: scale(2);
-    margin-left: 20px;
-}
-
-.form-radios label {
-    padding-left: 10px;
-}
-
-.form-slider, .form-button {
-    display: flex;
-    justify-content: center;
-}
-
-.form-button {
-    flex-direction: column;
-    width: 200px;
-    margin: auto;
-    text-align: center;
-}
-
-.form {
-    display: flex;
-    justify-content: center;
-}
-
-.form-text label, .form-slider label {
-    width: 150px;
-}
-
 body {
     background: #F0F0F0;
-}
-
-.trail-type {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.slider {
-    align-self: center;
-    width:175px;
+    font-family: Montserrat;
+    color: #454545;
+    font-weight: 600;
 }
