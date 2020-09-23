@@ -1,11 +1,9 @@
 import React from 'react';
 import "../../css/preliminary-form.css"
-import "../../../public/*.svg"
 
 const Preliminary = props => (
     <>
         <form>
-
             <div className="form-section">
                 <h1>Trail Type</h1>
                 <div className="trail-type">{
@@ -16,7 +14,7 @@ const Preliminary = props => (
                         onClick={(event) => props.onChange(event, "trailType", value)}
                         check={props.values.trailType === value ? "checked" : undefined}
                         >
-                            <img className="trail-type-icon" src={`${value}.svg`} alt={`Icon for trail type of ${value}`}></img>
+                            <img className="trail-type-icon" src={`/icons/${value}.svg`} alt={`Icon for trail type of ${value}`}></img>
                             <label htmlFor={key}>{value}</label>
                         </div>))
                 }</div>

@@ -3,8 +3,7 @@ import {
   BrowserRouter as Router,
   Link, Route, Switch
 } from "react-router-dom";
-import '../css/App-Navbar.css';
-import '../css/App.css';
+import '../css/navbar.css';
 import MainForm from './form/MainForm';
 import Preliminary from './form/PreliminaryForm';
 import NotFound from './NotFound';
