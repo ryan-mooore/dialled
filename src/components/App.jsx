@@ -26,12 +26,20 @@ const App = () => {
     bikeWeight: undefined,
     ridingStyle: 50,
   });
-
   const handleFormChange = (event, key, value) => {
     setFormEntries({
       ...formEntries,
       [key]: value
     })
+  }
+
+  const handleWeightChange = (event, key) => {
+    if ((!isNaN(event.target.value) && (event.target.value < 1000 && event.target.value > 0)) || event.target.value === "") {
+      setFormEntries({
+        ...formEntries,
+        [key]: event.target.value
+      })
+    };
   }
 
   const handleNext = (event) => {
@@ -73,6 +81,7 @@ const App = () => {
           <Route exact path="/" render={(props) => (<Preliminary {...props}
             values             ={formEntries}
             TrailType          ={TrailType}
+            onWeightChange     ={handleWeightChange}
             onChange           ={handleFormChange}
             handleNext         ={handleNext}
           />)} />

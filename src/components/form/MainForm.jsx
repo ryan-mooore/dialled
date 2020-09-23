@@ -4,7 +4,7 @@ import '../../css/main-form.css';
 const MainForm = (props) => {
 
     const [formEntries, setFormEntries] = useState({
-        isTubeless: false,
+        isTubeless: true,
         tyreWidth: 2.4,
     });
 
@@ -29,7 +29,7 @@ const MainForm = (props) => {
         let basePSI = 1.5 * (7 + weight / 10) - 1; //base psi for a 2.5 width tyre based on weight
         let widthMultiplier = -0.4 * width + 2; //adds psi if tyre is thinner, lowers to about 8 if tyre is ~4.0 fat bike
         let weightBasedPSI = basePSI * widthMultiplier;
-        let tubesAdditor = widthMultiplier * 5; //adds 2 psi if fat bike up to 5-6 psi if running at around 20
+        let tubesAdditor = widthMultiplier * 4; //adds 2 psi if fat bike up to 5-6 psi if running at around 20
         let tubedPSI = weightBasedPSI + tubesAdditor;
 
         let finalRearPSI = formEntries.isTubeless ? weightBasedPSI : tubedPSI
@@ -43,36 +43,40 @@ const MainForm = (props) => {
         <div>
             <form>
                 <div className="form-entry">
-                    <label htmlFor="isTubeless">Is Tubeless?</label>
+                    <label htmlFor="isTubeless">tubeless</label>
                     <div className="form-entry-content">
-                        <input type="checkbox" onClick={(event) => handleFormChange("isTubeless", !formEntries.isTubeless)} />
+                        <div className="switch">
+                            <div className="switch-slider" style={{"align-self": "flex-start"}} onClick={(event) => {
+                                event.target.style["align-self"] = (event.target.style["align-self"] === "flex-start" ? "flex-end" : "flex-start");
+                                handleFormChange("isTubeless", !formEntries.isTubeless);
+                                }}>
+                                    <label>{formEntries.isTubeless? "tubeless" : "tubes"}</label>
+                                </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="form-entry">
-                    <label htmlFor="tyre-width">Tyre width: </label>
+                    <label htmlFor="tyre-width">tyre width</label>
                     <div className="form-entry-content">
                         <input className="tyre-width-slider" type="range" min="2.0" max="4.0" step="0.1" value={formEntries.tyreWidth} onChange={(event) => handleFormChange("tyreWidth", event.target.value)} />
                     </div>
-                    <span>{formEntries.tyreWidth}</span>
                 </div>
+                    <div className="tyre-width-label">{formEntries.tyreWidth}</div>
 
             </form>
 
-            <hr></hr>
-            <div>
-                <h1>your recommended psi:</h1>
-                <div className="calculation">
-                    <div className="psi-value">
-                        <div className="number">{algorithm(props.preliminaryValues, formEntries)[1]}</div>
-                        <div className="info">rear PSI</div>
+                <h1 className="results-header">we reccommend</h1>
+                <div className="results-container">
+                        <div className="psi-value">
+                            <div className="number">{algorithm(props.preliminaryValues, formEntries)[1]}</div>
+                            <div className="info">rear PSI</div>
+                        </div>
+                        <div className="psi-value">
+                            <div className="number">{algorithm(props.preliminaryValues, formEntries)[0]}</div>
+                            <div className="info">front PSI</div>
+                        </div>
                     </div>
-                    <div className="psi-value">
-                        <div className="number">{algorithm(props.preliminaryValues, formEntries)[0]}</div>
-                        <div className="info">front PSI</div>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }

@@ -2,31 +2,28 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     margin-bottom: 35px;
 }
 
 .form-entry-content {
+    display: flex;
+    justify-content: center;
     width: 300px;
 }
 
-.calculation .number {
+.results-container .number {
     font-family: Montserrat;
     font-weight: 600;
     font-size: 200px;
     color: #454545;
 }
 
-.calculation .info {
+.results-container .info {
     text-align: center;
     position: relative;
     top: -30px;
     color: #454545;
-}
-
-.calculation {
-    display: flex;
-    align-content: center;
-    justify-content: space-evenly;
 }
 
 .tyre-width-slider {
@@ -34,18 +31,89 @@
     align-self: center;
     -webkit-appearance: none;
     align-self: center;
-    margin-left: 20px;
-    margin-right: 20px;
     height: 6px;
     background: #454545;
 }
 
+.tyre-width-slider:focus {
+    outline: none;
+}
+
 .tyre-width-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
+}
+
+.tyre-width-slider::-webkit-slider-thumb,
+.tyre-width-slider::-moz-range-thumb {
     height: 36px;
     width: 36px;
     border-radius: 50%;
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
     border: 6px solid #454545;
     background-color: #E3E3E3;
+}
+
+.switch {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
+    border: 6px solid #454545;
+    background-color: #E3E3E3;
+}
+
+.switch-slider {
+    width: 80px;
+    height: 40px;
+    background-color: #454545;
+    border-radius: 11px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.form-entry label {
+    text-align: right;
+    align-self: center;
+    width: 150px;
+}
+
+.switch-slider label {
+    font-size: 10pt;
+    text-align: center;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+form {
+    margin-top: 50px;
+}
+
+.results-container {
+    align-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #E3E3E3;
+
+}
+
+.results-header {
+    align-self: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: lowercase;
+    color: #454545;
+}
+
+.psi-value {
+    align-self: center;
+}
+
+.tyre-width-label {
+    margin: auto;
+    text-align: center;
 }

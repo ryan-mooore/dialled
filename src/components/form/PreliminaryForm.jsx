@@ -10,7 +10,12 @@ const Preliminary = props => (
                 <h1>Trail Type</h1>
                 <div className="trail-type">{
                     Object.entries(props.TrailType).map(([key, value]) => (
-                        <div key={key} className="trail-type-button" onClick={(event) => props.onChange(event, "trailType", value)} check={props.values.trailType === value ? "checked" : undefined}>
+                        <div 
+                        key={key}
+                        className="trail-type-button"
+                        onClick={(event) => props.onChange(event, "trailType", value)}
+                        check={props.values.trailType === value ? "checked" : undefined}
+                        >
                             <img className="trail-type-icon" src={`${value}.svg`} alt={`Icon for trail type of ${value}`}></img>
                             <label htmlFor={key}>{value}</label>
                         </div>))
@@ -32,12 +37,12 @@ const Preliminary = props => (
                 <h1>weight</h1>
                 <div className="weight">
                     <label htmlFor="rider-weight">rider weight</label>
-                    <input className="weight-input" type="text" value={props.values.riderWeight} onChange={(event) => props.onChange(event, "riderWeight", event.target.value)} />
+                    <input className="weight-input" type="text" value={props.values.riderWeight} onChange={(event) => props.onWeightChange(event, "riderWeight")} />
                     <label className="kg-label" htmlFor="rider-weight">kg</label>
                 </div>
                 <div className="weight">
                     <label htmlFor="bike-weight">bike weight</label>
-                    <input className="weight-input" type="text" value={props.values.bikeWeight} onChange={(event) => props.onChange(event, "bikeWeight", event.target.value)} />
+                    <input className="weight-input" type="text" value={props.values.bikeWeight} onChange={(event) => props.onWeightChange(event, "bikeWeight")} />
                     <label className="kg-label" htmlFor="rider-weight">kg</label>
                 </div>
             </div>
