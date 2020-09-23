@@ -62,11 +62,11 @@ const MainForm = (props) => {
                         <input className="tyre-width-slider" type="range" min="2.0" max="4.0" step="0.1" value={formEntries.tyreWidth} onChange={(event) => handleFormChange("tyreWidth", event.target.value)} />
                     </div>
                 </div>
-                    <div className="tyre-width-label">{formEntries.tyreWidth}</div>
+                    <div className="tyre-width-label">{formEntries.tyreWidth} inches</div>
 
             </form>
 
-                <h1 className="results-header">we reccommend</h1>
+                <h1 className="results-header">we recommend</h1>
                 <div className="results-container">
                         <div className="psi-value">
                             <div className="number">{algorithm(props.preliminaryValues, formEntries)[1]}</div>
