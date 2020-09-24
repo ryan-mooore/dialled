@@ -7,7 +7,7 @@ import '../css/navbar.css';
 import MainForm from './form/MainForm';
 import Preliminary from './form/PreliminaryForm';
 import NotFound from './NotFound';
-
+import About from './About';
 
 const App = () => {
 
@@ -94,8 +94,6 @@ const App = () => {
     </div>
   );
 }
-
-const About = () => (<h2>About</h2>);
 
 const Protune = () => (<h2>Protune</h2>);
 
