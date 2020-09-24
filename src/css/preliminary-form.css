@@ -24,14 +24,9 @@ form {
     width: 120px;
 }
 
-.weight-input,
 .trail-type,
-.riding-style-slider::-webkit-slider-thumb,
-.riding-style-slider::-moz-range-thumb,
 .form-button {
     border-radius: 15px;
-    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
-    border: 6px solid #454545;
 }
 
 label {
@@ -64,18 +59,17 @@ label {
     border-radius: 9px;
 }
 
-.trail-type-button[check],
-.riding-style-slider::-webkit-slider-thumb,
-.riding-style-slider::-moz-range-thumb {
-    background-color: #E3E3E3;
+.trail-type-button[check] {
+    box-shadow: inset 11px 11px 42px #dddddd, inset -11px -11px 42px #ffffff;
 }
 
 .riding-style-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
-.trail-type-button:hover {
-    background-color: #ffffff;
+.riding-style-slider::-moz-range-thumb {
+    -moz-appearance: none;
+    border: none;
 }
 
 .trail-type-icon {
@@ -104,11 +98,20 @@ label {
     background: #454545;
 }
 
-.riding-style-slider::-webkit-slider-thumb,
-.riding-style-slider::-moz-range-thumb {
+.riding-style-slider::-webkit-slider-thumb {
     height: 25px;
     width: 25px;
     border-radius: 50%;
+    box-shadow: 14px 14px 33px #cacaca, -14px -14px 33px #ffffff;
+    background-color: #454545;
+}
+
+.riding-style-slider::-moz-range-thumb {
+    height: 25px;
+    width: 25px;
+    box-shadow: 14px 14px 33px #cacaca, -14px -14px 33px #ffffff;
+    border-radius: 50%;
+    background-color: #454545;
 }
 
 
@@ -127,9 +130,17 @@ label {
 }
 
 .weight-input {
-    width: 50px;
-    height: 30px;
-    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.weight-input {
+    border-radius: 15px;
+    border: 0;
+    width: 70px;
+    height: 40px;
+    outline: none;
     background: #E3E3E3;
     font-style: normal;
     font-weight: 800;
@@ -137,6 +148,7 @@ label {
     font-family: Montserrat;
     font-size: 24px;
     color: #454545;
+    box-shadow: inset 11px 11px 42px #dddddd, inset -11px -11px 42px #ffffff;
 }
 
 .form-button {
@@ -159,8 +171,17 @@ label {
     letter-spacing: 0.2em;
 }
 
-.form-button:hover {
+.trail-type-button:hover {
+    box-shadow: inset 11px 11px 42px #dddddd, inset -11px -11px 42px #ffffff;
+}
+
+.form-button {
     background-color: #E3E3E3;
+    box-shadow: 11px 11px 42px #dddddd, inset -11px -11px 42px #ffffff;
+}
+
+.trail-type-button:active {
+    box-shadow: inset 11px 11px 42px #c5c5c5, inset -11px -11px 42px #ffffff;
 }
 
 .form-button:active {

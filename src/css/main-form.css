@@ -43,7 +43,15 @@
     -webkit-appearance: none;
 }
 
-.tyre-width-slider::-webkit-slider-thumb,
+.tyre-width-slider::-webkit-slider-thumb {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
+    border: 6px solid #454545;
+    background-color: #E3E3E3;
+}
+
 .tyre-width-slider::-moz-range-thumb {
     height: 36px;
     width: 36px;
@@ -96,7 +104,6 @@ form {
     display: flex;
     justify-content: space-evenly;
     background-color: #E3E3E3;
-
 }
 
 .results-header {

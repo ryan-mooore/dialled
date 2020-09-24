@@ -8,6 +8,7 @@ import MainForm from './form/MainForm';
 import Preliminary from './form/PreliminaryForm';
 import NotFound from './NotFound';
 import About from './About';
+import Protune from './Protune';
 
 const App = () => {
 
@@ -15,14 +16,14 @@ const App = () => {
     TECH: "tech",
     FREERIDE: "freeride",
     FLOW: "flow",
-    UNDULATING: "undulating",
+    CROSS_COUNTRY: "cross-country",
     URBAN: "urban"
   }
   
   const [formEntries, setFormEntries] = useState({
-    trailType: TrailType.FLOW,
-    riderWeight: undefined,
-    bikeWeight: undefined,
+    trailType: TrailType.CROSS_COUNTRY,
+    riderWeight: "",
+    bikeWeight: "",
     ridingStyle: 50,
   });
   const handleFormChange = (event, key, value) => {
@@ -32,8 +33,17 @@ const App = () => {
     })
   }
 
-  const handleWeightChange = (event, key) => {
-    if ((!isNaN(event.target.value) && (event.target.value < 1000 && event.target.value > 0)) || event.target.value === "") {
+  const handleWeightChange = (event, key) => {  
+    if (Number(event.target.value) === 0 || event.target.value === "") {
+      console.log("uhh")
+      setFormEntries({
+        ...formEntries,
+        [key]: "" 
+      })
+      return;
+    }
+
+    if ((!isNaN(event.target.value) && (event.target.value < 1000 && event.target.value > 0))) {
       setFormEntries({
         ...formEntries,
         [key]: event.target.value
@@ -62,7 +72,9 @@ const App = () => {
           </div>
         </Link>
         <nav>
-          <div className="logo"></div>
+          <a href="https://yt-industries.com">
+            <div className="logo"></div>
+          </a>
           <div className="links">
             <Link to="/about">about</Link>
             <Link to="/protune">protune</Link>
@@ -94,7 +106,5 @@ const App = () => {
     </div>
   );
 }
-
-const Protune = () => (<h2>Protune</h2>);
 
 export default App;

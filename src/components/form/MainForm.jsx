@@ -28,14 +28,39 @@ const MainForm = (props) => {
 
         let basePSI = 1.5 * (7 + weight / 10) - 1; //base psi for a 2.5 width tyre based on weight
         let widthMultiplier = -0.4 * width + 2; //adds psi if tyre is thinner, lowers to about 8 if tyre is ~4.0 fat bike
-        let weightBasedPSI = basePSI * widthMultiplier;
+        
+        let terrainAdditor = 0;
+        switch (preliminaryFormEntries.trailType) {
+            case props.TrailType.FLOW:
+                terrainAdditor = 2;
+                break;
+            case props.TrailType.TECH:
+                terrainAdditor = 4;
+                break;
+            case props.TrailType.FREERIDE:
+                terrainAdditor = 7;
+                break;
+            case props.TrailType.CROSS_COUNTRY:
+                terrainAdditor = 0;
+                break;
+            case props.TrailType.URBAN:
+                terrainAdditor = 12;
+                break;
+            default:
+                terrainAdditor = 0;
+                break;
+        }
+
+        let weightBasedPSI = basePSI * widthMultiplier + terrainAdditor;
         let tubesAdditor = widthMultiplier * 4; //adds 2 psi if fat bike up to 5-6 psi if running at around 20
+        
+        
         let tubedPSI = weightBasedPSI + tubesAdditor;
 
         let finalRearPSI = formEntries.isTubeless ? weightBasedPSI : tubedPSI
 
         let finalFrontPSI = finalRearPSI - (finalRearPSI < 50 ? (1.04 ** finalRearPSI) : 7);
-
+        
         return [Math.round(finalFrontPSI), Math.round(finalRearPSI)];
     }
 
