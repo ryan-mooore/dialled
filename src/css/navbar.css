@@ -1,75 +1,39 @@
 nav {
     height: 70px;
     display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
+    justify-content: center;
     background: #E3E3E3;
     color: #454545;
 }
 
-.logo {
-    align-self: flex-start;
-    width: 80px;
-    height: 50px;
-    background: url(/images/yt-logo.png);
-    mix-blend-mode: darken;
-}
-
 .central-header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-
+    align-items: center;
 }
 
-.central-header * {
-    display: flex;
-    position: absolute;
-    color: #454545; 
+.home-link {
+    text-decoration: none;
 }
 
 .central-header h1 {
+    line-height: 30px;
     font-family: Poppins;
     text-transform: lowercase;
     font-size: 32px;
     font-weight: 600;
-    top: -15px;
+    margin: 0;
 }
 
 .central-header h2 {
+    line-height: 10px;
     font-family: Montserrat;
     text-transform: uppercase;
     font-variant-caps: small-caps;
     font-weight: normal;
     font-size: 10px;
     letter-spacing: 0.3em;
-    
     top: 35px;
-}
-
-.links {
-    display: flex;
-    flex-direction: row;
-    padding: 0px;
-}
-
-.links a {
-   
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #454545; 
-    
-    margin: 20px;
-    align-self: center;
+    margin: 0;
 }
